@@ -1,3 +1,11 @@
+// IIFE
+(function() {
+  var aIIFE = 'abc'
+  console.log("iife")
+})()
+
+console.log('aIIFE: ', aIIFE)
+
 // normal function
 function getFee(isFee) {
   // const fee = isFee ? '10$' : '20$';

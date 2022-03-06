@@ -86,3 +86,42 @@ const carsArray = ['city', 'vios', 'vinfast'];
 for(const cardIndex in carsArray) {
   console.log('loop array for ... in: ', cardIndex)
 }
+
+// Object.keys()
+const loopObjectByKey = Object.keys(car);
+loopObjectByKey.forEach(key => {
+  console.log('loopObjectByKey: ', `${key}: ${car[key]}`)
+})
+
+// Object.values()
+const loopObjectByValues = Object.values(car);
+loopObjectByValues.forEach(values => {
+  console.log('loopObjectByValues: ', `${values}`)
+});
+
+// object.entries();
+const loopObjectByEntries = Object.entries(car);
+loopObjectByEntries.forEach(carItem => {
+  console.log('loopObjectByEntries: ', carItem)
+});
+
+/* copy object */
+
+// spread operator es6
+const targetObject = { firstName: 'truong', lastName: 'nguyen', price: 100 };
+const targetObjectB = { address: '140', city: 'TPHCM', price: 30 };
+const spreadSource = { ...targetObjectB, ...targetObject }; // copy shallow object
+
+// object.assgin es5
+const assignSoure = Object.assign({}, targetObject, targetObjectB) // copy shallow object
+
+// Object stringify
+const stringifyObject = JSON.parse(JSON.stringify(targetObject)); // copy deep object
+
+console.log('copy object spread: ', spreadSource);
+console.log('copy object assgin: ', assignSoure);
+console.log('copy object stringifyObject: ',  stringifyObject);
+
+/* delete object */
+delete targetObject.price;
+console.log("delete object: ", targetObject)

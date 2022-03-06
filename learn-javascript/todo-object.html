@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Todo Object</title>
+
+
+</head>
+<body>
+
+  <h1>Todo with Object</h1>
+
+  <form id="form">
+    <h4>Add todo: </h4>
+    Title: <input type="text" id="title" /> <br /><br />
+    Author: <input type="text" id="author" /> <br /><br />
+    <!-- <button type="button" id="btnSubmit">Submit</button> -->
+    <button type="submit" id="btnSubmit">Submit</button>
+  </form>
+  
+  <ul id="todoList">
+
+  </ul>
+
+
+  <script type="text/javascript">
+    const form = document.getElementById('form');
+    const todoList = document.getElementById('todoList');
+    let initialState = {
+      1: {
+        id: 1,
+        title: 'react',
+        author: 'tony'
+      },
+    }
+    
+    // use method when button type=button
+    // const btnSubmit = document.getElementById('btnSubmit');
+    // btnSubmit.addEventListener('click', function() {
+    //   const title = document.getElementById('title').value;
+    //   console.log('click: ', title)
+    // })
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+      todoList.innerHTML = '';
+
+      const title = document.getElementById('title').value;
+      const author = document.getElementById('author').value;
+      const todo = {
+        id: Date.now(), // generate timestamp
+        title: title,
+        author: author
+      }
+      initialState = {
+        ...initialState,
+        [todo.id]: todo
+      }
+
+      console.log('res: ', initialState)
+
+      Object.keys(initialState).forEach(key => {
+        const todoId = initialState[key].id;
+        const todoTitle = initialState[key].title;
+        const todoAuthor = initialState[key].author;
+        todoList.innerHTML += `
+          <li>
+            Id: ${todoId} <br />
+            Title: ${todoTitle} <br />
+            Author: ${todoAuthor} <br />
+            <button type="button" id="btnDelete">Delete</button>
+          </li>
+        `
+      })
+    })
+// keyword: loop object print html with innerHtml javascript
+  </script>
+
+</body>
+</html>
+
+
+
+

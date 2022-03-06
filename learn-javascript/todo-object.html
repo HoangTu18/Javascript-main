@@ -56,8 +56,6 @@
         [todo.id]: todo
       }
 
-      console.log('res: ', initialState)
-
       Object.keys(initialState).forEach(key => {
         const todoId = initialState[key].id;
         const todoTitle = initialState[key].title;
@@ -66,14 +64,21 @@
           <li>
             Id: ${todoId} <br />
             Title: ${todoTitle} <br />
-            Author: ${todoAuthor} <br />
-            <button type="button" id="btnDelete">Delete</button>
-            <button type="button" id="btnUpdate">Update</button>
+            Author: ${todoAuthor} <br />  
+            <button type="button" id="btnDelete" onclick="deleteTodo('${todoId}')">Delete</button>
+            <button type="button" id="btnUpdate" onclick="updateTodo('${todoId}')">Update</button>
           </li>
         `
       })
     })
-// keyword: loop object print html with innerHtml javascript
+
+    function deleteTodo(todoId) {
+      console.log('deleteTodo: ', todoId)
+    }
+
+    function updateTodo(todoId) {
+      console.log('updateTodo: ', todoId)
+    }
   </script>
 
 </body>

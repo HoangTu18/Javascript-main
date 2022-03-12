@@ -125,3 +125,31 @@ console.log('copy object stringifyObject: ',  stringifyObject);
 /* delete object */
 delete targetObject.price;
 console.log("delete object: ", targetObject)
+
+// update object
+let persons = {
+  1: {
+    id: 1,
+    title: 'react',
+    author: 'tony'
+  },
+  2: {
+    id: 2,
+    gender: 'male',
+    title: 'angular',
+    author: 'minh'
+  },
+}
+
+console.log("before update persopn: ", persons)
+
+const newId = 2;
+const newPersons = {
+  ...persons,
+  [newId]: {
+    ...persons[newId],
+    title: 'updated',
+    author: 'new author'
+  }
+}
+console.log("after update persopn: ", newPersons)

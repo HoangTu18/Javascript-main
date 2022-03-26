@@ -113,3 +113,111 @@ const allBooks = books.reduce((acc, curr) => {
 }, [])
 
 console.log('bonding arrays spread: ', allBooks)
+
+/* Baitap 5
+search by name
+input: [
+  {
+    id: 0,
+    name: 'truong'
+  },
+  {
+    id: 1,
+    name: 'khoa'
+  },
+  {
+    id: 2,
+    name: 'nam'
+  },
+  {
+    id: 3,
+    name: 'thu'
+  }
+]
+when user input: t
+output: [
+   {
+    id: 0,
+    name: 'truong'
+  },
+  {
+    id: 3,
+    name: 'thu'
+  }
+]
+*/
+
+
+/* Baitap 6
+extract file name
+input: {
+  id: 12,
+  passportNumber: 12,
+  pic: {
+    pictureIdNumber:
+      "data:application/pdf;name=[Smart Contract] A-Survey-of-Attack-on-Ethereum-Smart-Contracts.pdf;base64,JVBERi0xLjMKJcTl8uXrp/Og0MTGCjUgMCBvY",
+    pictureOfBuyerHoldingPassport:
+      "data:image/png;name=Screenshot from 2018-09-10 13-24-45.png;base64,iVBORw0KGgoAAAANSUhEUgAAAbkAAAFpCAI"
+  },
+  number: {
+    picturePassport:
+      "data:image/png;name=Screenshot from 2018-10-29 13-16-53.png;base64,iVBORw0KGgoAAAANSUhEUgAAAX",
+    proofOfTemporaryAddress:
+      "data:image/png;name=one-way.png;base64,iVBORw0KGgoAAAANSUhEUgAABIUA"
+  }
+};
+output: {
+  pictureIdNumber: '[Smart Contract] A-Survey-of-Attack-on-Ethereum-Smart-Contracts.pdf',
+  pictureOfBuyerHoldingPassport: 'Screenshot from 2018-09-10 13-24-45.png',
+  picturePassport: 'Screenshot from 2018-10-29 13-16-53.png',
+  proofOfTemporaryAddress: 'one-way.png'
+}
+*/
+
+/* Baitap 7
+flattern object
+input: {
+  businessLicenseNumber: '23',
+  informationOfBusiness: {
+    idNumber: {
+      id: 22,
+      issuanceDate: '2222-02-02',
+      issuancePlace: '22',
+      pictureIdNumber: 'http://localhost:3032/uploads/1548662953953.png',
+    },
+    passport: {
+      expiryDate: '2222-02-02',
+      issuanceDate: '2222-02-02',
+      issuancePlace: '222',
+      passportNumber: 222,
+      pictureOfBuyerHoldingPassport: 'http://localhost:3032/uploads/2314231253123.png',
+      picturePassport: 'http://localhost:3032/uploads/231eqe42.png',
+      address: {
+        pictureAddress: 'http://localhost:3032/uploads/content-js.pdf',
+      }
+    },
+  },
+  street: {
+    id: 22,
+    issuanceDate: '2222-02-02',
+    issuancePlace: 'tpcm',
+    pictureStreet: 'http://localhost:3032/uploads/street.pdf',
+  },
+  proofOfTemporaryAddress: 'http://localhost:3032/uploads/1678345437.png',
+}
+
+output: {
+  businessLicenseNumber: '23',
+  id: 22,
+  issuanceDate: '2222-02-02',
+  issuancePlace: 'tpcm',
+  pictureIdNumber: 'http://localhost:3032/uploads/1548662953953.png',
+  expiryDate: '2222-02-02',
+  passportNumber: 222,
+  pictureOfBuyerHoldingPassport: 'http://localhost:3032/uploads/2314231253123.png',
+  picturePassport: 'http://localhost:3032/uploads/231eqe42.png',
+  pictureAddress: 'http://localhost:3032/uploads/content-js.pdf',
+  pictureStreet: 'http://localhost:3032/uploads/street.pdf',
+  proofOfTemporaryAddress: 'http://localhost:3032/uploads/1678345437.png'
+} 
+*/

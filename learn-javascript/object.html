@@ -1,0 +1,55 @@
+a<!DOCTYPE html>
+<html>
+<head>
+<title>Object</title>
+
+<script type="text/javascript">
+  // BE yeu cau FE request len JSON string "{ 'truong': 1, 'thuan': 2 }"
+  const bodyData = { 'username': 1, 'passsword': 2 };
+  const bodyDataArray = [
+    {
+      name: 'truong'
+    },
+    {
+      name: 'minh'
+    }
+  ]
+  console.log('json string: ', JSON.stringify(bodyDataArray))
+
+  // localstorage
+  window.localStorage.setItem('account', JSON.stringify(bodyDataArray))
+  const getStorage =  window.localStorage.getItem('account');
+  console.log("getStorage", JSON.parse(getStorage), typeof getStorage)
+
+  // FE recevie data from BE 1 cai json string
+  const parseObject = JSON.parse(JSON.stringify(bodyDataArray))
+  console.log('json parse: ', parseObject)
+
+
+  // revier
+  let schedule = `{
+    "meetup": [
+      { "tile": "Conference", "date": "2017-11-30T12:00:00.000Z"},
+      { "tile": "Birtday", "date": "2017-04-18T12:00:00.000Z"}
+    ]
+  }`;
+
+  schedule = JSON.parse(schedule, function(key, value) {
+    if(key === 'date') return new Date(value).getHours(); // 0
+    return value
+  })
+  console.log('schedule: ', schedule)
+
+
+</script>
+
+</head>
+<body>
+
+<h1>This is a Heading</h1>
+<p>This is a paragraph.</p>
+
+</body>
+</html>
+
+

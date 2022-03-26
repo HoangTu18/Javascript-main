@@ -117,6 +117,7 @@ const carts = [
   { name: 'react', quanlity: 3, price: 200 },
   { name: 'milk', quanlity: 10, price: 400 },
   { name: 'beer', quanlity: 5, price: 100 },
+  { name: 'beer', quanlity: 5, price: 500 },
 ]
 const totalCart = carts.reduce((acc, currValue) => {
   return acc + currValue.quanlity * currValue.price
@@ -145,3 +146,46 @@ input: [[10,20], [50,100], [30,500]]
 output: [10,20,50,100,30,500]
 */
 
+
+/* sort */
+// linear sort, bubble sort, selection sort, insertion sort... 
+const counter = [1, 10000, 3, 6, 2, 2000];
+const counterSorted = counter.sort((a, b) => {
+  if(a > b) return -1;
+  if(a < b) return 1;
+  return 0;
+})
+console.log('sort: ', counterSorted)
+
+const students = [
+  { name: 'truong', age: 20 },
+  { name: 'tu', age: 15 },
+  { name: 'thuan', age: 30 },
+  { name: 'nam', age: 20 },
+  { name: 'minh', age: 15 },
+]
+const studentSorted = students.sort((a, b) => {
+  if(a.age > b.age) return -1;
+  if(a.age < b.age) return 1;
+  return 0;
+  // return b.age - a.age
+})
+console.log('student sort: ', studentSorted)
+
+/* some 
+The some() method tests whether at least one element in the array passes the test implemented by the provided function.
+*/
+const ages = [3, 5, 7];
+const isAgeEven = ages.some(number => number % 2 === 0);
+console.log('some: ', isAgeEven)
+
+/* every 
+The every() method tests whether all elements in the array pass the test implemented by the provided function. 
+*/
+const price = [2, 5, 7, 9, 30];
+const isPriceEven = price.every(number => number < 10);
+console.log('every: ', isPriceEven)
+
+/* find */
+const cartsFiend = carts.find(item => item.price > 200);
+console.log('find: ', cartsFiend)

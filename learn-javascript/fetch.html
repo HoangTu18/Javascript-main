@@ -1,0 +1,80 @@
+a<!DOCTYPE html>
+<html>
+<head>
+<title>Cookie</title>
+
+<script type="text/javascript">
+  
+
+</script>
+
+</head>
+<body>
+
+  <h1>Date</h1>
+  <p>This is a paragraph.</p>
+
+  <script type="text/javascript">
+    
+    // format: fetch(url) -> promise
+
+
+    // get
+    // fetch('https://tony-json-server.herokuapp.com/api/todos')
+    //   .then(res => res.json())
+    //   .then(data => {
+    //     console.log(data)
+    //   })
+    fetch('https://tony-json-server.herokuapp.com/api/todos?_page=1&_limit=10', {
+      method: 'GET',
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data)
+      })
+
+    // post data
+    // const newTodo = {
+    //   id: Date.now().toString(),
+    //   title: "Truong HTML",
+    //   author: "Truong",
+    //   description: "nihil aut laudantium",
+    //   severity: "low",
+    //   status: "new"
+    // }
+    // fetch("https://tony-json-server.herokuapp.com/api/todos", {
+    //   method: "POST",
+    //   headers: {
+    //     'Content-Type': 'application/json'
+    //   },
+    //   body: JSON.stringify(newTodo)
+    // })
+    // .then(res => res.json())
+    // .then(data => console.log('post: ', data));
+
+
+    // update
+    // fetch(`https://tony-json-server.herokuapp.com/api/todos/${1648870839097}`, {
+    //     method: "PATCH",
+    //     headers: {
+    //       'Content-Type': 'application/json'
+    //     },
+    //     body: JSON.stringify({
+    //       status: "close"
+    //     })
+    // })
+
+    // delete
+    // fetch(`https://tony-json-server.herokuapp.com/api/todos/${1648870839097}`, {
+    //   method: 'DELETE'
+    // })
+    
+
+  </script>
+
+
+
+</body>
+</html>
+
+

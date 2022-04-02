@@ -11,8 +11,43 @@ a<!DOCTYPE html>
 </head>
 <body>
 
-<h1>This is a Heading</h1>
-<p>This is a paragraph.</p>
+  <h1>Cookie</h1>
+  <p>This is a paragraph.</p>
+
+  <script type="text/javascript">
+    function setCookie(cname, cvalue, exdays) {
+      const d = new Date();
+      d.setTime(d.getTime() + (exdays*24*60*60*1000));
+      let expires = "expires="+ d.toUTCString();
+      document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    }
+    setCookie('username', 'truong', 0.5)
+    function getCookie(cname) {
+      let name = cname + "=";
+      let decodedCookie = decodeURIComponent(document.cookie);
+      let ca = decodedCookie.split(';');
+      for(let i = 0; i <ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') {
+          c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+          return c.substring(name.length, c.length);
+        }
+      }
+      return "";
+    }
+    // console.log('cookie is: ', getCookie('username'))
+    function deleteCookie(name) {
+      document.cookie = name + '=; path=/; Expires=Thu, 01 Jan 2021 00:00:01 GMT;';
+    }
+    deleteCookie('username')
+    
+
+
+  </script>
+
+
 
 </body>
 </html>

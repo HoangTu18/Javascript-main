@@ -19,8 +19,8 @@ function renderTodos(todos) {
           <h5 class="card-title">${todos[index].description}</h5>
           <p class="card-text"><span class="badge badge-primary">${todos[index].severity}</span></p>
           <div class="d-flex justify-content-end">
-            <button type="submit" class="btn btn-primary" style="margin-right: 10px;" onclick="setStatus(\'${listTodos[index].id}\')">Close</button>
-            <button type="submit" class="btn btn-danger" onclick="deleteTodo(\'${listTodos[index].id}\')">Delete</button>
+            <button type="submit" class="btn btn-primary" style="margin-right: 10px;" onclick="changeStatusTodo(\'${todos[index].id}\')">Close</button>
+            <button type="submit" class="btn btn-danger" onclick="deleteTodo(\'${todos[index].id}\')">Delete</button>
           </div>
         </div>
       </div>
@@ -28,7 +28,6 @@ function renderTodos(todos) {
     `
   }
 };
-
 
 // add todo
 issueInputForm.addEventListener('submit', (event) => {
@@ -61,7 +60,6 @@ formSearch.addEventListener('submit', (e) => {
 
 // sort
 const orderBy = document.getElementById('orderBy');
-
 orderBy.addEventListener('change', (e) => {
   e.preventDefault();
   const order = Number(orderBy.value);
@@ -74,3 +72,15 @@ orderBy.addEventListener('change', (e) => {
   renderTodos(todosSorted);
 })
 
+// change status
+function changeStatusTodo(todoId) {
+  // find index of todo item in array
+  const todoIndex = listTodos.findIndex(todo => todo.id === Number(todoId));
+  const status = listTodos[todoIndex].status;
+  if(status === 'new') {
+    listTodos[todoIndex].status = 'closed';
+  } else {
+    listTodos[todoIndex].status = 'new';
+  }
+  renderTodos(listTodos)
+}

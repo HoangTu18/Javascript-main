@@ -17,7 +17,10 @@ a<!DOCTYPE html>
   console.log('json string: ', JSON.stringify(bodyDataArray))
 
   // localstorage
-  window.localStorage.setItem('account', JSON.stringify(bodyDataArray))
+  // window.sessionStorage.setItem('account', JSON.stringify(bodyDataArray))
+  // window.sessionStorage.setItem('user', 'truong')
+  // window.localStorage.removeItem('user') // remove 
+  // window.localStorage.clear()
   const getStorage =  window.localStorage.getItem('account');
   console.log("getStorage", JSON.parse(getStorage), typeof getStorage)
 

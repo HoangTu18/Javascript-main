@@ -221,3 +221,22 @@ output: {
   proofOfTemporaryAddress: 'http://localhost:3032/uploads/1678345437.png'
 } 
 */
+
+
+BE => bodydata =[]
+
+FE => post bodydata = {}
+
+
+BE => API A => use to delete data => private
+
+Fe => login success => use API A
+
+
+
+API B => y/c em fai co quyen User (role)
+
+
+BE => provide API A, API B 
+
+FE => request API C => 404 not found

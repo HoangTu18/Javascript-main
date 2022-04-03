@@ -1,7 +1,4 @@
-let listTodos = [];
-
-const issueInputForm = document.getElementById('issueInputForm');
-const searchInput = document.getElementById('searchInput');
+// let todosLists = [];
 
 function renderTodos(todos) {
   const issuesList = document.getElementById('issuesList');
@@ -29,58 +26,13 @@ function renderTodos(todos) {
   }
 };
 
-// add todo
-issueInputForm.addEventListener('submit', (event) => {
-  event.preventDefault();
-  const description = document.getElementById('description').value;
-  const severity = document.getElementById('severity').value;
-
-  const todo = {
-    id: Date.now(),
-    status: 'new',
-    description,
-    severity
-  }
-
-  listTodos.push(todo);
-  renderTodos(listTodos);
-})
+// fetch list todos
+fetch('https://tony-json-server.herokuapp.com/api/todos')
+    .then(res => res.json())
+    .then(data => {
+      const todos = data.data;
+      renderTodos(todos);
+    })
 
 
-// search
-const formSearch = document.getElementById('formSearch');
-formSearch.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const keyword = searchInput.value.toLowerCase();
-  let todoSearched = [...listTodos];
-  todoSearched = newTodos.filter(todo => !todo.description.toLowerCase().indexOf(keyword));
-  renderTodos(todoSearched);
-})
-
-
-// sort
-const orderBy = document.getElementById('orderBy');
-orderBy.addEventListener('change', (e) => {
-  e.preventDefault();
-  const order = Number(orderBy.value);
-  const todosSorted = [...listTodos];
-  todosSorted.sort((a, b) => {
-    if(a.description > b.description) return order;
-    if(a.description < b.description) return order;
-    return 0;
-  })
-  renderTodos(todosSorted);
-})
-
-// change status
-function changeStatusTodo(todoId) {
-  // find index of todo item in array
-  const todoIndex = listTodos.findIndex(todo => todo.id === Number(todoId));
-  const status = listTodos[todoIndex].status;
-  if(status === 'new') {
-    listTodos[todoIndex].status = 'closed';
-  } else {
-    listTodos[todoIndex].status = 'new';
-  }
-  renderTodos(listTodos)
-}
+    

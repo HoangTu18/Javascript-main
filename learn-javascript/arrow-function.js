@@ -11,3 +11,7 @@ const cars = {
 }
 cars.showKey()
 cars.anotherKey()
+
+
+// specify parameter
+const counter = () => {}

@@ -4,7 +4,7 @@
   console.log("iife")
 })()
 
-console.log('aIIFE: ', aIIFE)
+// console.log('aIIFE: ', aIIFE)
 
 // normal function
 function getFee(isFee) {
@@ -26,7 +26,7 @@ getMonth('xx') // Jan -> 1, Feb -> 2, March -> 3, April -> 4, May -> 5
 
 // constructor function
 function HttpRequest(host, port) {
-  this.host = host;
+  this.host = host
   this.port = port;
   this.price = 30;
 }
@@ -41,11 +41,17 @@ HttpRequest.prototype.calc = function(number) {
   console.log('calc price: ' + (this.price - number))
 }
 
+
+HttpRequest.prototype.arrowFunc = (number) => {
+  console.log('arrowFunc: ' + (this.price - number))
+}
+
 // use
 const httpRequest = new HttpRequest('localhost', 3000);
 
 httpRequest.print();
 httpRequest.calc(10);
+httpRequest.arrowFunc(10);
 
 // function return statement
 function caclulateNumber(a, b) {
@@ -58,3 +64,4 @@ console.log('caclulateNumber: ', getNumber)
 
 
 // write function studentAchive(score) -> score === 1: ignorant; > 4, < 7: middle; còn lai: good
+

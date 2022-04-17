@@ -1,0 +1,86 @@
+a<!DOCTYPE html>
+<html>
+<head>
+<title>Promise</title>
+
+<script type="text/javascript">
+  
+
+</script>
+
+</head>
+<body>
+
+  <h1>Promise</h1>
+
+  <script type="text/javascript">
+    
+    const p = (isAsync, value) => new Promise((resovle, reject) => {
+      if(isAsync && typeof value === 'number') {
+        resovle(value)
+      } else {
+        reject(`Please enter number`)
+      }
+    })
+
+    p(false, 10)
+      .then(
+        value => {
+          console.log(value)
+          // code logic that depend on function p
+        },
+        err => {
+          console.log('error in then: ', err)
+        }
+      )
+      .catch(err => {
+        console.log('err: ', err)
+      })
+
+      Promise.reject(10).then(
+        value => console.log(value),
+        reason => console.log('reason: ', reason),
+      )
+
+
+    // chainning promise
+    const promiseVal3 = 0;
+
+    p(true, 10)
+      .then(value => {
+        return value * 10; // promise
+        // console.log('then 1: ', value)
+      })
+      .then(val2 => {
+        return val2 * 100
+        // console.log('then 2: ', val2) // 100
+      })
+      .then(val3 => { //fullfilled
+        promiseVal3 = val3;
+        console.log('then 3: ', val3) // 10000
+        // code logic that depend on function p
+      })
+      console.log('promiseVal3: ', promiseVal3 ) // 0
+      // something
+
+
+      // promise All
+
+      // all promise ko dc phu thuoc vs nhau
+      const promise1 = Promise.resolve(20);
+      const promise2 = 30;
+      const promise3 = new Promise((resovle, reject) => {
+        reject(50)
+      });
+      Promise.all([promise3, promise1, promise2])
+              .then(res => {
+                console.log('promise all: ', res)
+              })
+              .catch(err => console.log('promise all err: ', err))
+  </script>
+
+
+
+</body>
+</html>
+

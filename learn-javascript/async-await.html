@@ -1,0 +1,71 @@
+a<!DOCTYPE html>
+<html>
+<head>
+<title>async await</title>
+
+<script type="text/javascript">
+  
+
+</script>
+
+</head>
+<body>
+
+  <h1>async await</h1>
+
+  <script type="text/javascript">
+    // function test() {
+    //   return Promise.resolve(10)
+    // }
+
+    async function test() {
+      return 10
+    }
+
+    const res = test();
+
+    // how to get value from promise function
+
+    // 1: .then()
+    res.then(value => {
+      console.log('promise then: ', value)
+    })
+
+    // 2: await
+    async function fetchTest() {
+      const testAwait = await test();
+      console.log('await: ', testAwait)
+    }
+    fetchTest();
+
+    // async await sequence
+    async function fetchSingleTodo() {
+      try {
+        // const todos = await fetch('https://tony-json-server.herokuapp.com/api/todos');
+        // const todosData = await todos.json();
+        const todos = await fetch('https://tony-json-server.herokuapp.com/api/todos').then(res => res.json());
+        const todoId = todos.data[0].id;
+        const todo = await fetch(`https://tony-json-server.herokuapp.com/api/todos/${todoId}`).then(res => res.json());
+        return {
+          todo
+        }
+      }
+      catch (err) {
+        console.log('error fetchSingleTodo: ', err)
+      }
+    }
+
+    fetchSingleTodo().then(res => {
+      const { todo } = res;
+      console.log('fetchSingleTodo: ', todo.data)
+    });
+
+
+  </script>
+
+
+
+</body>
+</html>
+
+

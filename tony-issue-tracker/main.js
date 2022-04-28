@@ -27,7 +27,7 @@ function renderTodos(todos = []) {
 };
 
 // fetch list todos
-fetch(`https://tony-json-server.herokuapp.com/api/todos?page=1&limit=10`)
+fetch(`https://tony-json-server.herokuapp.com/api/todos?_page=1&_limit=5`)
     .then(res => res.json())
     .then(data => {
       console.log(data)

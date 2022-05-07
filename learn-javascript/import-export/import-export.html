@@ -1,0 +1,36 @@
+a<!DOCTYPE html>
+<html>
+<head>
+<title>Cookie</title>
+
+<script type="text/javascript">
+  
+
+</script>
+
+</head>
+<body>
+
+  <h1>module</h1>
+  <p>This is a paragraph.</p>
+
+
+
+  <script type="module">
+    import { stack, fetchData } from './helper.js';
+
+    stack.push(1);
+
+    fetchData().then(value => console.log(value))
+
+    console.log('stack: ', stack.print())
+
+
+  </script>
+
+
+
+</body>
+</html>
+
+

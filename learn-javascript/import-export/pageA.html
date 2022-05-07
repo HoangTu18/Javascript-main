@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>module</title>
+
+<script type="text/javascript">
+  
+
+</script>
+
+</head>
+<body>
+
+  <h1>module</h1>
+  <p>This is a paragraph.</p>
+
+  <script type="module">
+    // import handleSayHi, { sayBye, fetchData } from './helper.js';
+    import handleSayHi from './helper.js';
+    import * as helpers from './helper.js';
+
+    import { fetchData as fetchDataUser } from './util.js';
+    // as = alias
+    // section A using helper
+    helpers.fetchData().then(value => console.log(value))
+
+    // section B using util
+    fetchDataUser().then(value => console.log(value))
+
+    // using import default
+    handleSayHi();
+    helpers.sayHi();
+
+  </script>
+
+
+
+</body>
+</html>
+
+
